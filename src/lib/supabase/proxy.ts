@@ -61,7 +61,7 @@ export async function updateSession(request: NextRequest) {
 
   if (claims && isAuthPath(pathname)) {
     const url = request.nextUrl.clone();
-    url.pathname = '/';
+    url.pathname = '/todos';
     return NextResponse.redirect(url);
   }
 

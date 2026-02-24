@@ -18,4 +18,4 @@ function makePrismaClient() {
 export const prisma = globalForPrisma.prisma ?? makePrismaClient();
 
 // if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
-globalForPrisma.prisma = prisma; // vercel에 배포하면 속도가 느린게 위 코드에서 캐시 초기화해서 그렇다는데 테스트 해볼 필요있음
+globalForPrisma.prisma = prisma; // vercel은 서버리스 환경이라 인스턴스가 자주 죽어서 메모리 누수 신경쓸 필요 x, 캐싱해서 속도나 올림

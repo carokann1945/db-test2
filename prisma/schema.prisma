@@ -9,6 +9,12 @@ datasource db {
 
 model Todo {
   id        Int      @id @default(autoincrement())
+  userId    String   @db.Uuid           // ✅ Supabase auth.users.id (UUID)
   title     String
+  isDone    Boolean  @default(false)
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([userId, isDone])
 }
